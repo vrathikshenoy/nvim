@@ -14,14 +14,14 @@ This repository contains my custom Neovim configuration, built on top of the [La
 
 ### Prerequisites
 
-- Neovim 0.8+ ([installation guide](https://github.com/neovim/neovim/wiki/Installing-Neovim))
+- Neovim 0.10+ ([installation guide](https://github.com/neovim/neovim/wiki/Installing-Neovim))
 - Git
 
 ### Steps
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/your-nvim-config ~/.config/nvim
+   git clone https://github.com/vrathikshenoy/nvim ~.config/nvim
    ```
 
 2. Open Neovim and LazyVim will automatically install the required plugins:
