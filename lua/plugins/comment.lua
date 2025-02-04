@@ -1,10 +1,41 @@
 return {
-  "terrortylor/nvim-comment",
-  config = function()
-    require("nvim_comment").setup({
-      -- You can set more options here if needed
-      line_mapping = "gcc", -- Comment line with gcc
-      operator_mapping = "gc", -- Comment selection with gc in visual mode
-    })
-  end,
+  {
+    "numToStr/Comment.nvim",
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+    },
+    config = function()
+      -- Load context_commentstring first
+      require("ts_context_commentstring").setup({
+        enable_autocmd = false,
+        -- Add Python to the list of supported languages
+        config = {
+          python = "# %s",
+        },
+      })
+
+      require("Comment").setup({
+        -- Enable pre_hook to detect filetype-specific comment strings
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+
+        -- Optional: Customize keymappings
+        -- Toggle comment for current line
+        toggler = {
+          line = "gcc", -- Normal mode
+          block = "gbc", -- Block mode
+        },
+        -- Toggle comment for selected lines
+        opleader = {
+          line = "gc", -- Normal mode
+          block = "gb", -- Block mode
+        },
+
+        -- Enable comment string detection for common file types
+        mappings = {
+          basic = true, -- Enable basic mappings
+          extra = false, -- Enable extra mappings
+        },
+      })
+    end,
+  },
 }
