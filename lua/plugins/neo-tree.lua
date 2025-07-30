@@ -68,22 +68,5 @@ return {
         end
       end
     end
-
-    -- Keymaps
-    vim.keymap.set("n", "<C-x>", smart_toggle, { noremap = true, silent = true, desc = "Toggle Neo-tree focus" })
-
-    vim.keymap.set(
-      "n",
-      "<C-n>",
-      ":Neotree toggle left<CR>",
-      { noremap = true, silent = true, desc = "Toggle Neo-tree sidebar" }
-    )
-
-    vim.keymap.set(
-      "n",
-      "<leader>bf",
-      ":Neotree buffers reveal float<CR>",
-      { noremap = true, silent = true, desc = "Show buffers in Neo-tree" }
-    )
   end,
 }
