@@ -1,10 +1,13 @@
 return {
+
+  -- Disable old dashboard plugin if present
+  { "nvimdev/dashboard-nvim", enabled = false },
   {
     "folke/snacks.nvim",
     priority = 1000,
     opts = {
       -- CORE FEATURES --
-      dashboard = { enabled = true },
+      dashboard = { enabled = false }, -- Disable dashboard
       scroll = { enabled = true },
       words = { enabled = true },
 
