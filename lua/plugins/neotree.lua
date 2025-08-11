@@ -8,7 +8,7 @@ return {
   },
   config = function()
     -- Neo-tree setup with enhanced configuration
-    require("neo-tree").setup({
+    require("neo-tree").setup {
       filesystem = {
         filtered_items = {
           visible = true, -- Show hidden files by default
@@ -29,7 +29,7 @@ return {
           expander_highlight = "NeoTreeExpander",
         },
       },
-    })
+    }
     -- Function to check if Neo-tree is open and get its window
 
     -- Key mappings

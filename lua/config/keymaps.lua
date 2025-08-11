@@ -78,7 +78,6 @@ map("i", "<C-c>", "<Esc>", { desc = "Exit insert mode with Ctrl+C" })
 map({ "v", "s" }, "<C-c>", "<Esc>", { desc = "Exit visual/select mode with Ctrl+C" })
 
 -- Method 6: Space+key combinations (for one-handed operation)
-map("i", "<Space><Space>", "<Esc>", { desc = "Exit insert mode with double space" })
 
 -- Enhanced functionality after escape
 map("n", "<leader>w", ":w<CR>", { desc = "Quick save" })

@@ -21,7 +21,7 @@ return {
           vim.keymap.set("n", "<CR>", function()
             local node = require("neo-tree.ui.renderer").get_node()
             if node and node.path then
-              local ext = node.path:match("%.([^%.]+)$")
+              local ext = node.path:match "%.([^%.]+)$"
               if ext and vim.tbl_contains({ "png", "jpg", "jpeg", "gif" }, ext:lower()) then
                 -- Open in new split
                 vim.cmd("vs " .. node.path)
@@ -29,7 +29,7 @@ return {
                 vim.bo.binary = false
                 require("image").setup()
               else
-                require("neo-tree.command").execute({ action = "open" })
+                require("neo-tree.command").execute { action = "open" }
               end
             end
           end, { buffer = true, silent = true })
@@ -37,14 +37,14 @@ return {
       })
 
       -- Set up filetype detection for images
-      vim.filetype.add({
+      vim.filetype.add {
         extension = {
           png = "image",
           jpg = "image",
           jpeg = "image",
           gif = "image",
         },
-      })
+      }
     end,
   },
 }
