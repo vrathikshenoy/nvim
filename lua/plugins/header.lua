@@ -11,7 +11,7 @@
 -- Mini.starter configuration with custom dashboard
 
 return {
-  "echasnovski/mini.starter",
+  "nvim-mini/mini.starter",
   version = false,
   event = "VimEnter",
   opts = function()
@@ -37,7 +37,7 @@ return {
       return { name = name, action = action, section = pad .. section }
     end
 
-    local starter = require("mini.starter")
+    local starter = require "mini.starter"
     local config = {
       evaluate_single = true,
       header = logo,
@@ -72,7 +72,7 @@ return {
       })
     end
 
-    local starter = require("mini.starter")
+    local starter = require "mini.starter"
     starter.setup(config)
 
     vim.api.nvim_create_autocmd("User", {
