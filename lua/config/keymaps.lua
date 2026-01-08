@@ -39,17 +39,8 @@ for _, key in ipairs(caps_variations) do
   map("o", key, "<Esc>", { desc = "Cancel operator-pending mode with Caps Lock" })
 end
 
--- Method 3: Terminal-specific Caps Lock detection
--- Add this to your init.lua or a separate config file
-local function setup_capslock_detection()
-  -- Detect Caps Lock press and map it
-  vim.api.nvim_create_autocmd("TermResponse", {
-    callback = function()
-      -- This is a more advanced method that requires terminal cooperation
-      -- Most modern terminals can be configured to send specific codes for Caps Lock
-    end,
-  })
-end
+-- Note: LaTeX files use <leader>t prefix for vimtex commands
+-- This avoids conflicts with other <leader> keymaps
 
 -- Method 4: Alternative fast escape methods (highly recommended)
 -- These work in all situations and are very fast
@@ -57,20 +48,7 @@ map("i", "jk", "<Esc>", { desc = "Exit insert mode with jk" })
 map("i", "kj", "<Esc>", { desc = "Exit insert mode with kj" })
 map("i", "jj", "<Esc>", { desc = "Exit insert mode with jj" })
 
--- Enhanced escape with timeout for better experience
-map("i", "j", function()
-  -- Quick escape if 'k' follows within 200ms
-  local timer = vim.loop.new_timer()
-  local escaped = false
 
-  timer:start(200, 0, function()
-    if not escaped then
-      timer:close()
-    end
-  end)
-
-  return "j"
-end, { expr = true, desc = "Smart j for jk escape" })
 
 -- Method 5: Using Ctrl+C as Caps Lock alternative (recommended)
 -- Ctrl+C is easier to reach and works everywhere
@@ -82,3 +60,16 @@ map({ "v", "s" }, "<C-c>", "<Esc>", { desc = "Exit visual/select mode with Ctrl+
 -- Enhanced functionality after escape
 map("n", "<leader>w", ":w<CR>", { desc = "Quick save" })
 map("n", "<leader>q", ":q<CR>", { desc = "Quick quit" })
+
+-- LSP related keymaps for Neovim 0.11+
+if vim.version().minor >= 11 then
+  map("n", "<leader>lS", ":LspInfo<CR>", { desc = "LSP Info" })
+  map("n", "<leader>lR", ":LspRestart<CR>", { desc = "LSP Restart" })
+  map("n", "<leader>lL", ":LspLog<CR>", { desc = "LSP Log" })
+  map("n", "<leader>ld", vim.lsp.buf.definition, { desc = "Go to Definition" })
+  map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
+end
+
+-- LaTeX live preview
+
+
