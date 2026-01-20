@@ -1,13 +1,3 @@
-require("blink.cmp").setup {
-  keymap = {
-    preset = "enter",
-
-    ["<C-k>"] = { "select_prev", "fallback" },
-    ["<C-j>"] = { "select_next", "fallback" },
-
-    ["<CR>"] = { "accept", "fallback" },
-  },
-}
 return {
   {
     "tpope/vim-fugitive",

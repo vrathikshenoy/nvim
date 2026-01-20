@@ -70,6 +70,11 @@ if vim.version().minor >= 11 then
   map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
 end
 
+-- Toggle inlay hints (type annotations from LSP like Ruff/ty)
+map("n", "<leader>ih", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = "Toggle Inlay Hints" })
+
 -- LaTeX live preview
 
 

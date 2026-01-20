@@ -34,6 +34,7 @@ return {
       hooks = {
         PostrunActiveVenv = function()
           vim.cmd("LspRestart")
+          return 1
         end,
       },
     },
